@@ -19,6 +19,12 @@ func main() {
 		context.String(http.StatusOK, "Hello %s!", name)
 	})
 
+	r.GET("/rock", func(context *gin.Context) {
+		context.JSON(200, gin.H{
+			"forThoseAboutToRock": "we salute you!",
+		})
+	})
+
 	err := r.Run()
 	if err != nil {
 		log.Fatal(err)
